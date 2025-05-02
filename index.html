@@ -5,48 +5,45 @@
   <title>CVWこども∞コネクト</title>
   <style>
     body {
-      background-color: #000;
-      color: #fff;
       font-family: 'Segoe UI', sans-serif;
+      background-color: #000;
+      color: white;
+      text-align: center;
       margin: 0;
-      padding: 0;
     }
     header {
-      background: linear-gradient(to right, #ff00cc, #00ccff);
-      padding: 20px;
-      text-align: center;
+      background: linear-gradient(to right, magenta, cyan);
+      padding: 10px;
     }
     header img {
-      max-width: 200px;
+      height: 60px;
     }
-    .button {
-      display: inline-block;
-      background-color: yellow;
-      color: black;
-      padding: 10px 20px;
-      margin: 10px 0;
-      text-decoration: none;
-      font-weight: bold;
-      border-radius: 30px;
-    }
-    section {
+    .section {
       border: 2px solid cyan;
       margin: 20px;
       padding: 20px;
-      border-radius: 10px;
+      border-radius: 12px;
+      background-color: #111;
     }
     h2 {
-      color: #ff00cc;
+      color: magenta;
     }
-    .card {
-      background-color: #222;
+    .button {
+      background: yellow;
+      color: black;
+      padding: 10px 20px;
+      border-radius: 30px;
+      font-weight: bold;
+      display: inline-block;
+      margin-top: 10px;
+      text-decoration: none;
+    }
+    .recipe-card {
+      background: #222;
+      padding: 15px;
       border-radius: 10px;
-      padding: 10px;
-      margin-bottom: 15px;
-    }
-    .recipe-img {
-      width: 100%;
-      max-width: 300px;
+      margin: 10px auto;
+      max-width: 90%;
     }
     iframe {
       max-width: 100%;
@@ -55,54 +52,39 @@
 </head>
 <body>
   <header>
-    <img src="cvw_logo.png" alt="CVWこども∞コネクト ロゴ">
-    <br>
-    <a class="button" href="https://cvwjapan-1.jimdosite.com/" target="_blank">一般社団法人 CVW JAPAN 公式サイト</a>
-  </header>  <section>
+    <img src="file-FymsR8qNWMizJcVCa1LDAU" alt="CVWこども∞コネクト ロゴ">
+    <div><a class="button" href="https://cvwjapan-1.jimdosite.com/" target="_blank">一般社団法人 CVW JAPAN 公式サイト</a></div>
+  </header>  <div class="section">
     <h2>子育て支援情報（東京都）</h2>
-    <div class="card">
-      <p><strong>018サポート：</strong>0歳〜18歳に月5,000円支給（申請必要）</p>
-      <p><strong>子育て応援とうきょうパスポート：</strong>協賛店で割引やサービス</p>
-      <p><strong>赤ちゃんファースト：</strong>出産後10万円分のギフト提供</p>
-      <p><strong>その他：</strong>病児保育・ショートステイ・子育てひろばなど</p>
-      <a class="button" href="https://kosodate.metro.tokyo.lg.jp/" target="_blank">支援情報サイトへ</a>
-    </div>
-  </section>  <section>
-    <h2>障がい児・発達支援 情報</h2>
-    <div class="card">
-      <p><strong>療育手帳について</strong>：各自治体で取得手続きが必要です。</p>
-      <p><strong>支援制度</strong>：児童発達支援・放課後等デイサービスの利用</p>
-      <p><strong>相談窓口</strong>：お住まいの福祉事務所へ</p>
-    </div>
-  </section>  <section>
+    <p><strong>018サポート：</strong>0歳〜18歳に月5,000円支給（申請必要）</p>
+    <p><strong>子育て応援とうきょうパスポート：</strong>協賛店で割引やサービス</p>
+    <p><strong>赤ちゃんファースト：</strong>出産後10万円分のギフト提供</p>
+    <p><strong>その他：</strong>病児保育・ショートステイ・子育てひろばなど</p>
+    <a class="button" href="#">支援情報サイトへ</a>
+  </div>  <div class="section">
     <h2>料理レシピ</h2>
-    <div class="card">
-      <img src="oyakodon.jpg" alt="親子丼" class="recipe-img">
-      <h3>親子丼</h3>
+    <div class="recipe-card">
+      <img src="file-4uahw95ZshZvAtgbuf5fW6" alt="親子丼" style="width:100%; max-width:300px;"><br>
+      <strong>親子丼</strong>
       <p>やわらかい鶏肉と卵で栄養たっぷり。子どもも喜ぶ簡単メニュー。</p>
     </div>
-    <div class="card">
-      <img src="hamburg.jpg" alt="ハンバーグ" class="recipe-img">
-      <h3>ふっくらハンバーグ</h3>
+    <div class="recipe-card">
+      <img src="file-XSKRebPo7YJDYDEXSX9yRe" alt="ハンバーグ" style="width:100%; max-width:300px;"><br>
+      <strong>ふっくらハンバーグ</strong>
       <p>みんな大好きな洋食レシピ。中にチーズを入れても◎</p>
     </div>
-  </section>  <section>
+  </div>  <div class="section">
     <h2>天気予報</h2>
-    <ul>
-      <li><a href="https://tenki.jp/week/" target="_blank">tenki.jp（日本気象協会）</a></li>
-      <li><a href="https://www.jma.go.jp/bosai/forecast/" target="_blank">気象庁 週間天気予報</a></li>
-      <li><a href="https://weathernews.jp/s/forecast/" target="_blank">ウェザーニュース 全国天気</a></li>
-    </ul>
-  </section>  <section>
-    <h2>紹介動画</h2>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/hXDnbsgMYbk?si=4rDBMISwum-Ekf91" frameborder="0" allowfullscreen></iframe>
-  </section>  <section>
+    <iframe src="https://weather-widget-link.jp" width="300" height="250" frameborder="0"></iframe>
+  </div>  <div class="section">
     <h2>地域児童センター設立 応援プロジェクト</h2>
-    <p>目標金額：￥50,000,000 ｜ 現在の支援総額：￥0</p>
-    <progress value="0" max="50000000"></progress>
-    <p><a class="button" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS" target="_blank">ご支援をよろしくお願いします</a></p>
-  </section>  <footer>
-    <p style="text-align: center; padding: 20px; font-size: 14px;">© 2025 CVW GROUP. All rights reserved.</p>
-  </footer>
+    <p>目標金額：¥50,000,000｜現在の支援総額：¥0</p>
+    <progress value="0" max="50000000" style="width: 90%; height: 20px;"></progress>
+    <p><strong>ご支援をよろしくお願いします。</strong></p>
+    <a class="button" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS" target="_blank">支援する</a>
+  </div>  <div class="section">
+    <h2>公式YouTube紹介</h2>
+    <iframe width="300" height="200" src="https://www.youtube.com/embed/hXDnbsgMYbk" title="CVW JAPAN YouTube" frameborder="0" allowfullscreen></iframe>
+  </div>
 </body>
 </html>
