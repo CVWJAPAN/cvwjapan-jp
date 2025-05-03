@@ -10,11 +10,6 @@
       text-align: center;
       padding: 1.5em;
     }
-    .logo {
-      width: 180px;
-      height: auto;
-      margin-bottom: 0.5em;
-    }
     .section {
       border: 2px solid #0ff;
       border-radius: 10px;
@@ -38,23 +33,40 @@
       display: inline-block;
       margin-top: 0.5em;
     }
-    .image {
-      width: 100%;
-      max-width: 600px;
-      border-radius: 10px;
-      margin: 1em auto;
-      display: block;
-    }
     iframe {
       width: 100%;
       height: 250px;
       border: none;
     }
+    .counter {
+      font-size: 2em;
+      font-weight: bold;
+      color: #ff3399;
+      background: linear-gradient(to right, #ffccff, #ccffff);
+      padding: 0.5em 1em;
+      border-radius: 10px;
+      box-shadow: 0 0 10px #ccc;
+      display: inline-block;
+      margin: 0.5em 0;
+    }
   </style>
+  <script>
+    let amount = 0;
+    function countUp() {
+      const target = 0;
+      const counter = document.getElementById("amount");
+      let current = parseInt(counter.innerText.replace(/[^0-9]/g, ''));
+      if (current < target) {
+        current += 100000;
+        counter.innerText = "\u00a5" + current.toLocaleString();
+        setTimeout(countUp, 50);
+      }
+    }
+    window.onload = countUp;
+  </script>
 </head>
 <body>
   <header>
-    <img class="logo" src="logo.png" alt="CVWこども∞コネクト ロゴ" />
     <h1>CVWこども∞コネクト</h1>
     <a class="btn" href="https://cvwjapan-1.jimdosite.com/">一般社団法人CVW JAPAN 公式サイト</a>
   </header>  <div class="section">
@@ -67,7 +79,7 @@
   </div>  <div class="section">
     <div class="title">クラウドファンディング</div>
     <p>地域児童センター設立のための応援をお願いいたします。</p>
-    <p>目標金額：¥50,000,000｜現在の支援総額：¥0</p>
+    <p>目標金額：¥50,000,000｜現在の支援総額：<span id="amount" class="counter">¥0</span></p>
     <a class="btn" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS">支援する</a>
   </div>  <div class="section">
     <div class="title">児童虐待防止 動画</div>
@@ -75,11 +87,6 @@
   </div>  <div class="section">
     <div class="title">こども家庭庁 ニュース</div>
     <a class="btn" href="https://www.cfa.go.jp">こども家庭庁公式サイトへ</a>
-  </div>  <div class="section">
-    <div class="title">活動の様子</div>
-    <img class="image" src="activity1.jpg" alt="支援物資の写真">
-    <img class="image" src="activity2.jpg" alt="食事支援の様子">
-    <img class="image" src="activity3.jpg" alt="感謝の手紙">
   </div>
 </body>
 </html>
