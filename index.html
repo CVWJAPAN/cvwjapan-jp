@@ -90,12 +90,29 @@
   </div>
 
   <div class="section">
-    <div class="title">地域児童センター設立クラウドファンディング</div>
-    <div class="card">
-      <p>目標金額：¥50,000,000</p>
-      <p>現在の支援総額：<span class="amount">¥0</span></p>
-      <a class="btn" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS">支援する</a>
-    </div>
+  <div class="title">地域児童センター設立クラウドファンディング</div>
+  <div class="card">
+    <p>目標金額：¥50,000,000</p>
+    <p>現在の支援総額：<span id="donation-amount">¥0</span></p>
+    <a class="btn" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS">ご支援はこちら</a>
+  </div>
+</div>
+
+<script>
+  let targetAmount = 3000000; // 表示したい寄付額（例：300万円）
+  let current = 0;
+  let step = Math.ceil(targetAmount / 100); // アニメーション速度に応じて調整
+  let el = document.getElementById("donation-amount");
+
+  let counter = setInterval(() => {
+    current += step;
+    if (current >= targetAmount) {
+      current = targetAmount;
+      clearInterval(counter);
+    }
+    el.textContent = "¥" + current.toLocaleString();
+  }, 30); // 速さ：数字が変わる間隔（ミリ秒）
+</script>
   </div>
 
   <div class="section">
