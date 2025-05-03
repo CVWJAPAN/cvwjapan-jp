@@ -1,104 +1,115 @@
-<!DOCTYPE html><html lang="ja">
+<!DOCTYPE html>
+<html lang="ja">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CVWこども∞コネクト</title>
   <style>
-    body { background: #fff; color: #000; font-family: sans-serif; margin: 0; padding: 0; }
+    body {
+      background: #fff;
+      font-family: sans-serif;
+      color: #111;
+      margin: 0;
+      padding: 0;
+    }
     header {
       background: linear-gradient(to right, magenta, cyan);
       text-align: center;
-      padding: 1.5em;
+      padding: 1em;
+      font-size: 2em;
+      font-weight: bold;
     }
-    header h1 {
-      font-size: 3em;
-      margin: 0;
-    }
-    header h2 {
-      font-size: 1.5em;
-      margin: 0.2em 0 0;
+    .subtitle {
+      font-size: 1.2em;
+      color: #333;
     }
     .section {
-      border: 2px solid #0ff;
+      border: 2px solid cyan;
       border-radius: 10px;
       margin: 1em;
       padding: 1em;
-      background: #fefefe;
+      background: #f9f9f9;
     }
     .title {
       color: magenta;
-      font-size: 1.3em;
+      font-size: 1.2em;
       margin-bottom: 0.5em;
-      font-weight: bold;
     }
     .btn {
       background: yellow;
       color: black;
       padding: 0.5em 1em;
+      border: none;
       border-radius: 1em;
       font-weight: bold;
       text-decoration: none;
       display: inline-block;
       margin-top: 0.5em;
     }
-    iframe {
-      width: 100%;
-      height: 250px;
-      border: none;
-    }
-    .counter {
-      font-size: 2em;
-      font-weight: bold;
-      color: #ff3399;
-      background: linear-gradient(to right, #ffccff, #ccffff);
-      padding: 0.5em 1em;
-      border-radius: 10px;
-      box-shadow: 0 0 10px #ccc;
-      display: inline-block;
+    .card {
       margin: 0.5em 0;
+      background: #fff;
+      padding: 1em;
+      border-radius: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.1);
+    }
+    .amount {
+      font-size: 1.5em;
+      font-weight: bold;
+      color: #007acc;
     }
   </style>
-  <script>
-    let amount = 0;
-    function countUp() {
-      const target = 0;
-      const counter = document.getElementById("amount");
-      let current = parseInt(counter.innerText.replace(/[^0-9]/g, ''));
-      if (current < target) {
-        current += 100000;
-        counter.innerText = "\u00a5" + current.toLocaleString();
-        setTimeout(countUp, 50);
-      }
-    }
-    window.onload = countUp;
-  </script>
 </head>
 <body>
   <header>
-    <h1>CVW</h1>
-    <h2>こども∞コネクト</h2>
-    <a class="btn" href="https://cvwjapan-1.jimdosite.com/">一般社団法人CVW JAPAN 公式サイト</a>
-  </header>  <div class="section">
+    CVW<br><span class="subtitle">こども∞コネクト</span>
+  </header>
+
+  <div class="section">
+    <div class="title">一般社団法人CVW JAPANデジタルリンク集</div>
+    <a class="btn" href="https://cvwjapan-1.jimdosite.com/">公式ホームページはこちら</a>
+  </div>
+
+  <div class="section">
     <div class="title">子育て支援情報（全国対応）</div>
-    <p>018サポート、赤ちゃんファースト、パスポート、病児保育・ショートステイなど</p>
-    <a class="btn" href="https://www.wam.go.jp/kokodesearch/ANN010100E00.do">子育て支援ポータルへ</a>
-  </div>  <div class="section">
-    <div class="title">障がい児支援・発達支援</div>
-    <p>療育手帳、相談窓口、通所支援、地域連携センターの紹介など</p>
-    <a class="btn" href="https://www8.cao.go.jp/shougai/">障がい支援の制度紹介</a>
-  </div>  <div class="section">
-    <div class="title">クラウドファンディング</div>
-    <p>地域児童センター設立のための応援をお願いいたします。</p>
-    <p>目標金額：¥50,000,000｜現在の支援総額：<span id="amount" class="counter">¥0</span></p>
-    <a class="btn" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS">支援する</a>
-  </div>  <div class="section">
-    <div class="title">児童虐待防止 動画</div>
-    <iframe src="https://www.youtube.com/embed/hXDnbsgMYbk" allowfullscreen></iframe>
-    <p style="margin-top: 1em;">児童相談所への通報が必要な場合は、下記よりお電話ください。</p>
-    <a class="btn" href="tel:189">189に電話する（児童相談所）</a>
-  </div>  <div class="section">
-    <div class="title">こども家庭庁 ニュース</div>
-    <a class="btn" href="https://www.cfa.go.jp">こども家庭庁公式サイトへ</a>
+    <div class="card">
+      <p>018サポート：0歳〜18歳に月5,000円支給（申請必要）</p>
+      <p>とうきょうパスポート：協賛店で割引やサービス</p>
+      <p>赤ちゃんファースト：出産後10万円分のギフト提供</p>
+      <p>その他：病児保育・ショートステイなど</p>
+    </div>
+    <a class="btn" href="https://www.wam.go.jp/kokodesearch/ANN010100E00.do">子育て支援情報をみる</a>
+  </div>
+
+  <div class="section">
+    <div class="title">障がい児支援・発達支援情報</div>
+    <div class="card">
+      <p>障がい児支援サービス・発達支援制度・支援団体情報など</p>
+    </div>
+    <a class="btn" href="https://www8.cao.go.jp/shougai/">障がい支援情報へ</a>
+  </div>
+
+  <div class="section">
+    <div class="title">地域児童センター設立クラウドファンディング</div>
+    <div class="card">
+      <p>目標金額：¥50,000,000</p>
+      <p>現在の支援総額：<span class="amount">¥3,240,500</span></p>
+      <a class="btn" href="https://checkout.square.site/merchant/MLX30TSTRDSNB/checkout/RLEFR7MZEVMZKTKADM4TVTAS">支援する</a>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">児童虐待防止YouTube動画</div>
+    <div class="card">
+      <iframe width="100%" height="200" src="https://www.youtube.com/embed/hXDnbsgMYbk" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <div class="section">
+    <div class="title">こども家庭庁ニュースリンク</div>
+    <div class="card">
+      <a class="btn" href="https://www.cfa.go.jp/">こども家庭庁サイトへ</a>
+    </div>
   </div>
 </body>
 </html>
