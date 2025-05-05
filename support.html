@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <title>CVWGEN - 支援者向けAI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f4fafe;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 800px;
+      margin: auto;
+      background: #e0f7fa;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #00796b;
+    }
+    textarea, button, select, input {
+      width: 100%;
+      font-size: 1rem;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      height: 100px;
+      resize: vertical;
+    }
+    button {
+      background: #4db6ac;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .response, .plan {
+      margin-top: 20px;
+      padding: 15px;
+      background: #ffffffee;
+      border-radius: 10px;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>CVWGEN - 支援者支援AI</h1>
+    <p>相談内容や法令、支援手法について入力してください。</p>
+    <textarea id="inputText" placeholder="例：障がい者総合支援法に基づく個別支援計画とは？"></textarea>
+    <button onclick="talkToSupportGen()">GENと話す</button>
+    <div id="response" class="response"></div>
+
+    <h2>支援計画書ジェネレーター</h2>
+    <p>簡易的に支援計画の草案を作成できます。</p>
+    <input type="text" id="name" placeholder="利用者氏名">
+    <input type="text" id="goal" placeholder="支援目標（例：生活リズムの安定）">
+    <select id="period">
+      <option value="短期">短期</option>
+      <option value="長期">長期</option>
+    </select>
+    <textarea id="details" placeholder="具体的支援内容（例：毎朝8時に起床し、朝食をとる習慣化）"></textarea>
+    <button onclick="generatePlan()">支援計画を作成</button>
+    <div id="planResult" class="plan"></div>
+  </div>
+
+  <script>
+    const lawAnswers = [
+      { keywords: ["児童福祉法"], response: "児童福祉法はすべての児童が健全に育成されるよう支援する法律です。措置制度や里親制度なども含まれます。" },
+      { keywords: ["社会福祉法"], response: "社会福祉法は福祉サービスの基本を定める法律で、地域福祉の推進や利用者本位の支援が強調されています。" },
+      { keywords: ["障がい者総合支援法"], response: "この法律は障がいのある方に対する自立支援を目的とし、就労移行支援や生活介護など多様なサービスが含まれます。" },
+      { keywords: ["発達障がい者支援法"], response: "発達障がい者支援法では、教育・就労・生活のあらゆる場面での支援体制を整えることが目的です。" },
+      { keywords: ["児童虐待防止法"], response: "この法律は虐待の早期発見と通告義務を定めており、児童相談所との連携が重要です。" }
+    ];
+
+    function talkToSupportGen() {
+      const text = document.getElementById("inputText").value;
+      let reply = "ご質問の内容について整理しています。少々お待ちください...";
+
+      for (const item of lawAnswers) {
+        if (item.keywords.some(word => text.includes(word))) {
+          reply = item.response;
+          break;
+        }
+      }
+
+      const history = JSON.parse(localStorage.getItem("support_gen_history") || "[]");
+      history.push({ input: text, reply: reply });
+      localStorage.setItem("support_gen_history", JSON.stringify(history));
+
+      document.getElementById("response").innerText = reply;
+      document.getElementById("inputText").value = "";
+    }
+
+    function generatePlan() {
+      const name = document.getElementById("name").value;
+      const goal = document.getElementById("goal").value;
+      const period = document.getElementById("period").value;
+      const details = document.getElementById("details").value;
+
+      const output = `【支援計画書（${period}目標）】
+利用者名：${name}
+目標：${goal}
+支援内容：
+${details}
+
+※この計画は暫定案です。必要に応じて修正・確認してください。`;
+
+      document.getElementById("planResult").innerText = output;
+    }
+  </script>
+</body>
+</html>
