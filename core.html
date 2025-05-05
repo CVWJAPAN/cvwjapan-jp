@@ -2,87 +2,48 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CVWCORE - ホーム</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVWCORE トップページ</title>
   <style>
-    body {
-      font-family: "Segoe UI", sans-serif;
-      background-color: #f2f7fb;
-      margin: 0;
-      padding: 0;
+    body { font-family: sans-serif; margin: 0; background: #f0f8ff; }
+    header {
+      background: #0a5275; color: white; padding: 1em;
+      font-size: 1.6em; text-align: center;
     }
-    .navbar {
-      background-color: #00b5d9;
-      color: white;
-      padding: 15px;
-      text-align: center;
-      font-size: 1.2em;
+    nav {
+      display: flex; flex-wrap: wrap; justify-content: center;
+      background: #0a5275; padding: 10px;
     }
-    .navbar a {
-      color: white;
-      margin: 0 10px;
-      text-decoration: none;
+    nav a {
+      color: white; margin: 5px 10px; text-decoration: none;
+      padding: 8px 14px; border-radius: 6px; background: #197aa3;
+    }
+    nav a:hover {
+      background: #26a4cc;
     }
     .container {
-      padding: 20px;
+      max-width: 800px; margin: 30px auto; padding: 20px;
+      background: white; border-radius: 12px;
+      box-shadow: 0 0 12px rgba(0,0,0,0.1);
     }
-    .card {
-      background-color: white;
-      border-radius: 15px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-      margin: 15px 0;
-      padding: 20px;
-      transition: 0.3s;
-      text-align: center;
-    }
-    .card:hover {
-      transform: scale(1.02);
-    }
-    .card h2 {
-      margin: 0 0 10px 0;
-    }
-    .emoji {
-      font-size: 2rem;
-      margin-bottom: 10px;
-    }
+    h2 { color: #0a5275; }
+    p { line-height: 1.6; }
   </style>
 </head>
 <body>
-  <div class="navbar">
-    <strong>CVWCORE</strong>
-    <a href="index.html">ホーム</a>
-    <a href="cvwgen.html">CVWGEN</a>
-    <a href="#">ログイン</a>
-    <a href="#">ご寄付</a>
-    <a href="#">お問い合わせ</a>
-  </div>
+  <header>CVWCORE ポータル</header>
+
+  <nav>
+    <a href="cvwgen.html">CVWGEN（子ども支援AI）</a>
+    <a href="parent.html">保護者相談</a>
+    <a href="support.html">支援者・福祉司</a>
+    <a href="fund.html">CVWFUND（寄付）</a>
+    <a href="login.html">CVWID（ログイン）</a>
+  </nav>
 
   <div class="container">
-    <a href="cvwgen.html" style="text-decoration: none; color: inherit;">
-      <div class="card" style="background: #fff0f5;">
-        <div class="emoji">👦</div>
-        <h2>CVWGEN（子ども支援AI）</h2>
-        <p>子どもの声をAIがやさしく受け止め、支援へ導きます</p>
-      </div>
-    </a>
-
-    <div class="card" style="background: #e0f7e9;">
-      <div class="emoji">👨‍👩‍👧</div>
-      <h2>保護者向け相談</h2>
-      <p>子育ての悩みを分かち合い、孤立を防ぎます</p>
-    </div>
-
-    <div class="card" style="background: #ede7f6;">
-      <div class="emoji">🩺</div>
-      <h2>支援者・福祉司</h2>
-      <p>通告判断・支援記録など専門支援機能が充実</p>
-    </div>
-
-    <div class="card" style="background: #fffde7;">
-      <div class="emoji">💰</div>
-      <h2>CVWFUND（寄付）</h2>
-      <p>支援と寄付をつなぐ仕組みで想いをカタチに</p>
-    </div>
+    <h2>ようこそ、CVWCOREへ</h2>
+    <p>ここは、子ども・家庭・支援者をつなぐデジタル福祉ポータルです。上記のメニューから必要な支援サービスへアクセスできます。</p>
   </div>
 </body>
 </html>
