@@ -2,25 +2,69 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>CVWCORE ポータル</title>
+  <title>CVWCOREポータル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; text-align: center; background: #eaf7fb; padding: 2em; }
-    h1 { color: #003366; }
+    body {
+      font-family: 'Helvetica Neue', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: linear-gradient(to bottom right, #fff0f5, #e0ffff);
+      color: #333;
+      text-align: center;
+    }
+    header {
+      background-color: #ffccf9;
+      padding: 1.5rem;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2rem;
+      color: #333;
+    }
+    .nav {
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      max-width: 300px;
+      margin: 2rem auto;
+    }
     .nav a {
-      display: inline-block; margin: 10px; padding: 12px 20px;
-      background: #ffffff; border: 2px solid #7ec9d6;
-      border-radius: 10px; text-decoration: none; color: #003366; font-weight: bold;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      padding: 1rem;
+      background-color: #ffffffcc;
+      border: 2px solid #ddd;
+      border-radius: 15px;
+      text-decoration: none;
+      color: #333;
+      font-size: 1.1rem;
+      font-weight: bold;
+      transition: background-color 0.2s ease;
+    }
+    .nav a:hover {
+      background-color: #fce4ec;
+    }
+    .emoji {
+      font-size: 1.5rem;
     }
   </style>
 </head>
 <body>
-  <h1>CVWCORE ポータル</h1>
-  <div class="nav">
-    <a href="cvwgen.html">子ども（CVWGEN）</a>
-    <a href="guardian.html">保護者</a>
-    <a href="supporter.html">支援者</a>
-    <a href="fund.html">寄付</a>
-    <a href="login.html">ログイン</a>
-  </div>
+  <header>
+    <h1>CVWCOREポータル</h1>
+  </header>
+  <main>
+    <div class="nav">
+      <a href="cvwgen.html"><span class="emoji">🧒</span> 子ども（CVWGEN）</a>
+      <a href="guardian.html"><span class="emoji">👪</span> 保護者</a>
+      <a href="support.html"><span class="emoji">🤝</span> 支援者</a>
+      <a href="fund.html"><span class="emoji">💝</span> 寄付</a>
+      <a href="login.html"><span class="emoji">🔐</span> ログイン</a>
+    </div>
+  </main>
 </body>
 </html>
