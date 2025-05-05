@@ -1,70 +1,70 @@
-<!DOCTYPE html>
-<html lang="ja">
+<!DOCTYPE html><html lang="ja">
 <head>
   <meta charset="UTF-8">
   <title>CVWCOREポータル</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     body {
-      font-family: 'Helvetica Neue', sans-serif;
-      margin: 0;
-      padding: 0;
-      background: linear-gradient(to bottom right, #fff0f5, #e0ffff);
-      color: #333;
+      font-family: sans-serif;
+      background: linear-gradient(to bottom right, #ffeaf4, #e0f8f9);
       text-align: center;
+      padding: 40px;
     }
-    header {
-      background-color: #ffccf9;
-      padding: 1.5rem;
+    h1 {
+      background-color: #f7c6e0;
+      padding: 20px;
+      border-radius: 10px;
+      color: #333;
+    }
+    .menu {
+      margin: 30px auto;
+      width: 80%;
+      max-width: 400px;
+    }
+    .menu button {
+      display: block;
+      width: 100%;
+      margin: 10px 0;
+      padding: 15px;
+      font-size: 18px;
+      border: none;
+      border-radius: 8px;
+      background-color: white;
       box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      cursor: pointer;
     }
-    header h1 {
-      margin: 0;
-      font-size: 2rem;
-      color: #333;
+    .menu button:hover {
+      background-color: #f0f0f0;
     }
-    .nav {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      max-width: 300px;
-      margin: 2rem auto;
-    }
-    .nav a {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 0.5rem;
-      padding: 1rem;
-      background-color: #ffffffcc;
-      border: 2px solid #ddd;
-      border-radius: 15px;
-      text-decoration: none;
-      color: #333;
-      font-size: 1.1rem;
-      font-weight: bold;
-      transition: background-color 0.2s ease;
-    }
-    .nav a:hover {
-      background-color: #fce4ec;
-    }
-    .emoji {
-      font-size: 1.5rem;
+    #login-box {
+      margin-top: 30px;
     }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CVWCOREポータル</h1>
-  </header>
-  <main>
-    <div class="nav">
-      <a href="cvwgen.html"><span class="emoji">🧒</span> 子ども（CVWGEN）</a>
-      <a href="guardian.html"><span class="emoji">👪</span> 保護者</a>
-      <a href="support.html"><span class="emoji">🤝</span> 支援者</a>
-      <a href="fund.html"><span class="emoji">💝</span> 寄付</a>
-      <a href="login.html"><span class="emoji">🔐</span> ログイン</a>
+  <h1>CVWCOREポータル</h1>  <div id="login-box">
+    <div id="g_id_onload"
+         data-client_id="YOUR_GOOGLE_CLIENT_ID"
+         data-context="signin"
+         data-callback="onLogin"
+         data-auto_prompt="false">
     </div>
-  </main>
-</body>
+    <div class="g_id_signin" data-type="standard"></div>
+  </div>  <div class="menu" id="menu-buttons" style="display: none;">
+    <button onclick="location.href='cvwgen.html'">👦 子ども（CVWGEN）</button>
+    <button onclick="location.href='guardian.html'">👨‍👩‍👧‍👦 保護者</button>
+    <button onclick="location.href='support.html'">🤝 支援者</button>
+    <button onclick="location.href='fund.html'">💝 寄付</button>
+    <button onclick="logout()">🔓 ログアウト</button>
+  </div>  <script>
+    function onLogin(response) {
+      const userData = jwt_decode(response.credential);
+      document.getElementById('login-box').style.display = 'none';
+      document.getElementById('menu-buttons').style.display = 'block';
+    }
+
+    function logout() {
+      location.reload();
+    }
+  </script>  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script></body>
 </html>
