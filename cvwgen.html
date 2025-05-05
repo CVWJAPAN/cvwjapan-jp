@@ -2,18 +2,88 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>CVWGEN 子ども支援AI</title>
+  <title>CVWGEN - 子ども支援AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; background: #fff6f6; padding: 20px; }
-    .card { max-width: 600px; margin: auto; background: #ffdfe6; padding: 20px; border-radius: 12px; }
-    a { text-decoration: none; color: #e91e63; display: block; margin-top: 20px; }
+    body {
+      font-family: 'Arial Rounded MT Bold', sans-serif;
+      background: #fff0f5;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #ffe4ec;
+      padding: 20px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #e91e63;
+    }
+    textarea, button {
+      width: 100%;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      padding: 10px;
+      border-radius: 10px;
+      border: none;
+    }
+    textarea {
+      height: 100px;
+      resize: none;
+    }
+    button {
+      background: #f48fb1;
+      color: white;
+      font-weight: bold;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 10px;
+      background: #ffffffaa;
+      border-radius: 10px;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>CVWGEN（子ども支援AI）</h1>
-    <p>子どもの不安や悩みにやさしく寄り添うAIです。話しかけるだけで気持ちを整理し、支援への橋渡しをサポートします。</p>
-    <a href="index.html">← ポータルに戻る</a>
+  <div class="container">
+    <h1>CVWGEN（こどもAI）</h1>
+    <p>きもちを教えてね。ぼくが一緒にかんがえるよ。</p>
+    <textarea id="inputText" placeholder="ここに気持ちをかいてね..."></textarea>
+    <button onclick="talkToGen()">GENと話す</button>
+    <div id="response" class="response"></div>
   </div>
+
+  <script>
+    const keywords = {
+      "こわい": "それはこわかったね。だいじょうぶ、もうひとりじゃないよ。",
+      "さびしい": "さびしいときは、お話してくれてありがとう。",
+      "うれしい": "うれしいきもち、ぼくもうれしい！",
+      "つらい": "つらい気持ち、ちゃんと伝えてくれてありがとう。"
+    };
+
+    function talkToGen() {
+      const text = document.getElementById("inputText").value;
+      let response = "教えてくれてありがとう。ゆっくり一緒にかんがえようね。";
+
+      for (const word in keywords) {
+        if (text.includes(word)) {
+          response = keywords[word];
+          break;
+        }
+      }
+
+      // 学習データを保存（ローカル記録）
+      const history = JSON.parse(localStorage.getItem("gen_history") || "[]");
+      history.push({ input: text, reply: response });
+      localStorage.setItem("gen_history", JSON.stringify(history));
+
+      document.getElementById("response").innerText = response;
+      document.getElementById("inputText").value = "";
+    }
+  </script>
 </body>
 </html>
