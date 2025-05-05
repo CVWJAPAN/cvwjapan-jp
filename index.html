@@ -1,34 +1,30 @@
-<!DOCTYPE html><html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <title>たすけてボタンテスト</title>
-  <style>
-    body { text-align:center; font-family:sans-serif; padding-top:50px; }
-    #help-form { display:none; margin-top:20px; }
-    textarea { width: 80%; max-width: 400px; }
-  </style>
-</head>
-<body>  <h2>たすけてボタン</h2>
-  <button onclick="document.getElementById('help-form').style.display='block'">
-    たすけて
-  </button>  <div id="help-form">
-    <p>どんなことで困ってる？</p>
-    <textarea id="help-text" rows="4" placeholder="例：ごはんが食べられない、話を聞いてほしい"></textarea><br><br>
-    <button onclick="submitHelp()">送信する</button>
-  </div>  <p id="response-msg" style="color:green; font-weight:bold;"></p>  <script>
-    function submitHelp() {
-      const text = document.getElementById('help-text').value;
-      if (!text.trim()) {
-        alert("困ってることを入力してください。");
-        return;
+<html>
+  <body>
+    <h2>CVWGEN - 子ども支援AI</h2>
+    <div id="chatBox"></div>
+    <input type="text" id="userInput" placeholder="何でも話してね">
+    <button onclick="sendMessage()">送信</button>
+
+    <script>
+      async function sendMessage() {
+        const input = document.getElementById('userInput').value;
+        document.getElementById('chatBox').innerHTML += `<p>あなた：${input}</p>`;
+        const response = await fetch('https://api.openai.com/v1/chat/completions', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            'Authorization': 'Bearer YOUR_API_KEY'
+          },
+          body: JSON.stringify({
+            model: "gpt-4",
+            messages: [{ role: "user", content: input }],
+            temperature: 0.7
+          })
+        });
+        const data = await response.json();
+        const reply = data.choices[0].message.content;
+        document.getElementById('chatBox').innerHTML += `<p>CVWGEN：${reply}</p>`;
       }
-
-      // 今はコンソールに出すだけ。将来はFirebaseなどに接続
-      console.log("支援要請:", text);
-
-      document.getElementById('response-msg').innerText =
-        "ありがとう。もうすぐ誰かが助けに来てくれるよ。";
-      document.getElementById('help-form').style.display = 'none';
-    }
-  </script></body>
+    </script>
+  </body>
 </html>
