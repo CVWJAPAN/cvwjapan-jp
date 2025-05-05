@@ -2,64 +2,57 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>CVWCOREポータル</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CVWCORE ポータル</title>
   <style>
     body {
-      font-family: "Yu Gothic", sans-serif;
+      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
+      background: #fffaf7;
       margin: 0;
-      background: #fef9f8;
+      padding: 0;
       color: #333;
     }
     header {
-      background: #aee2ff;
-      padding: 1rem;
+      background-color: #8fd3f4;
+      color: white;
+      padding: 1em;
       text-align: center;
-      font-size: 1.8rem;
+      font-size: 1.5em;
       font-weight: bold;
-      color: #004080;
     }
     nav {
       display: flex;
-      flex-wrap: wrap;
       justify-content: center;
-      gap: 0.5rem;
-      background: #d0f0fd;
-      padding: 1rem;
+      flex-wrap: wrap;
+      gap: 10px;
+      background: #d6f0fc;
+      padding: 1em;
     }
     nav a {
-      background: #ffe1f0;
-      color: #5a1e4e;
-      padding: 0.6rem 1rem;
       text-decoration: none;
-      border-radius: 1rem;
+      background: #ffdde1;
+      color: #333;
+      padding: 10px 16px;
+      border-radius: 12px;
       font-weight: bold;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
     }
     .section {
+      margin: 1.5em;
       background: #fff;
-      border: 2px dashed #ffb6c1;
-      border-radius: 1rem;
-      padding: 1rem;
-      margin: 1rem;
-      box-shadow: 0 0 5px rgba(0,0,0,0.05);
+      border-radius: 12px;
+      padding: 1.2em;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
     }
     .section h2 {
-      font-size: 1.4rem;
-      color: #ff69b4;
-      margin-bottom: 0.5rem;
+      margin-top: 0;
+      color: #ff6f91;
     }
-    .section p {
-      font-size: 1rem;
-    }
-    .section a {
-      display: inline-block;
-      margin-top: 0.5rem;
-      background: #ffb6c1;
-      color: white;
-      padding: 0.4rem 1rem;
-      text-decoration: none;
-      border-radius: 0.8rem;
+    footer {
+      text-align: center;
+      font-size: 0.8em;
+      padding: 1em;
+      color: #aaa;
     }
   </style>
 </head>
@@ -67,12 +60,35 @@
   <header>CVWCORE ポータル</header>
 
   <nav>
-    <a href="cvwgen.html">子ども（CVWGEN）</a>
-    <a href="core_login_mock.html">保護者</a>
-    <a href="cvwgen-linked.html">支援者</a>
+    <a href="cvwgen.html">CVWGEN</a>
+    <a href="guardian.html">保護者</a>
+    <a href="support.html">支援者</a>
     <a href="fund.html">寄付</a>
-    <a href="core.html">ログイン</a>
+    <a href="login.html">ログイン</a>
   </nav>
 
   <div class="section">
-    <h2>子ども
+    <h2>CVWGEN（子ども支援AI）</h2>
+    <p>子どもの不安や悩みをやさしく受け止め、AIが支援に導きます。</p>
+  </div>
+
+  <div class="section">
+    <h2>保護者向け相談</h2>
+    <p>子育てに関する悩みを共有し、孤立を防ぐ相談ページです。</p>
+  </div>
+
+  <div class="section">
+    <h2>支援者・福祉司</h2>
+    <p>支援記録や通告判断など、専門支援機能を提供します。</p>
+  </div>
+
+  <div class="section">
+    <h2>CVWFUND（寄付）</h2>
+    <p>あなたの寄付が子どもたちの未来を支えます。</p>
+  </div>
+
+  <footer>
+    &copy; 2025 CVWJAPAN. All Rights Reserved.
+  </footer>
+</body>
+</html>
