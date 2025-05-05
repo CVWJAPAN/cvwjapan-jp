@@ -1,15 +1,15 @@
-<!-- ▼▼ CVWGEN - 本番用（GPT-4接続）▼▼ -->
-<div id="chatContainer" style="background:#000;border:2px solid #39ff14;border-radius:16px;padding:20px;max-width:720px;margin:auto;box-shadow:0 0 20px #00ffff;margin-top:30px;color:#fff;">
-  <h2 style="color:#ff00ff;">CVWGEN - 子ども支援AI（本番版）</h2>
-  <p style="color:#fff;">あなたの立場を選んでください：</p>
-  <select id="modeSelect" style="font-size:16px;padding:6px;margin-bottom:10px;background:#000;color:#39ff14;border:1px solid #39ff14;">
+<!-- ▼▼ CVWGEN - 白背景・黒文字 本番用 ▼▼ -->
+<div id="chatContainer" style="background:#fff;border:2px solid #39ff14;border-radius:16px;padding:20px;max-width:720px;margin:auto;box-shadow:0 0 12px #ccc;margin-top:30px;color:#000;">
+  <h2 style="color:#00a7ff;">CVWGEN - 子ども支援AI（本番版）</h2>
+  <p>あなたの立場を選んでください：</p>
+  <select id="modeSelect" style="font-size:16px;padding:6px;margin-bottom:10px;background:#fff;color:#000;border:1px solid #00a7ff;">
     <option value="child">子どもとして話す</option>
     <option value="parent">保護者として相談する</option>
     <option value="worker">支援者・児童福祉司として使う</option>
   </select>
-  <div id="chatBox" style="height:320px;overflow-y:auto;border:1px solid #ff0;background:#111;padding:10px;margin-bottom:15px;color:#fff;"></div>
-  <input type="text" id="userInput" placeholder="あなたの言葉を聞かせてください" style="width:70%;padding:10px;font-size:16px;background:#000;color:#fff;border:1px solid #ff0;">
-  <button onclick="sendMessage()" style="padding:10px 20px;font-size:16px;background-color:#00ffff;color:#000;border:none;cursor:pointer;">送信</button>
+  <div id="chatBox" style="height:320px;overflow-y:auto;border:1px solid #ccc;background:#f9f9f9;padding:10px;margin-bottom:15px;color:#000;"></div>
+  <input type="text" id="userInput" placeholder="あなたの言葉を聞かせてください" style="width:70%;padding:10px;font-size:16px;background:#fff;color:#000;border:1px solid #ccc;">
+  <button onclick="sendMessage()" style="padding:10px 20px;font-size:16px;background-color:#00a7ff;color:#fff;border:none;cursor:pointer;">送信</button>
 </div>
 
 <script>
@@ -31,7 +31,7 @@
 
     const mode = modeSelect.value;
 
-    chatBox.innerHTML += `<p><strong style="color:#ffff00;">あなた：</strong> ${text}</p>`;
+    chatBox.innerHTML += `<p><strong style="color:#0077cc;">あなた：</strong> ${text}</p>`;
     chatBox.scrollTop = chatBox.scrollHeight;
 
     if (messageHistory.length === 0) {
@@ -44,4 +44,22 @@
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer sk-ここにあなたのAPIキー" //
+        "Authorization": "Bearer YOUR_API_KEY"  // ← あなたのAPIキーに差し替えてください
+      },
+      body: JSON.stringify({
+        model: "gpt-4",
+        messages: messageHistory,
+        temperature: 0.6
+      })
+    });
+
+    const data = await response.json();
+    const reply = data.choices[0].message.content;
+    messageHistory.push({ role: "assistant", content: reply });
+
+    chatBox.innerHTML += `<p><strong style="color:#00a7ff;">CVWGEN：</strong> ${reply}</p>`;
+    chatBox.scrollTop = chatBox.scrollHeight;
+    input.value = "";
+  }
+</script>
+<!-- ▲▲ 白背景・黒文字 バージョンここまで ▲▲ -->
