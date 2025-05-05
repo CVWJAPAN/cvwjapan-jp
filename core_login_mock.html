@@ -1,0 +1,79 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CVWCORE ログイン機能付き</title>
+  <style>
+    body { font-family: sans-serif; background: #f8f8f8; padding: 20px; }
+    header { background: #005f73; color: white; padding: 1em; text-align: center; font-size: 1.5em; }
+    .container {
+      max-width: 600px; margin: 30px auto; background: white;
+      padding: 20px; border-radius: 10px; box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%; padding: 12px; margin: 10px 0;
+      font-size: 1em;
+    }
+    button {
+      background: #0088cc; color: white; border: none; border-radius: 5px;
+    }
+    #dashboard {
+      display: none; background: #e0f7fa; padding: 20px; border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>CVWCORE 本人認証（仮ログイン）</header>
+  <div class="container">
+    <div id="login">
+      <h2>ログイン</h2>
+      <input type="text" id="userId" placeholder="ユーザーID">
+      <input type="password" id="password" placeholder="パスワード">
+      <button onclick="mockLogin()">ログインする</button>
+    </div>
+
+    <div id="dashboard">
+      <h2>ようこそ、<span id="userName"></span>さん</h2>
+      <p>あなたはログイン済みです。CVWGENや他のサービスにアクセスできます。</p>
+      <ul>
+        <li><a href="cvwgen.html">CVWGEN（子ども支援AI）</a></li>
+        <li><a href="cvwgen-ai.html">CVWGEN AIチャット</a></li>
+        <li><a href="#">CVWIDマイページ（今後追加）</a></li>
+      </ul>
+      <button onclick="logout()">ログアウト</button>
+    </div>
+  </div>
+
+  <script>
+    function mockLogin() {
+      const user = document.getElementById("userId").value;
+      const pass = document.getElementById("password").value;
+      if (user && pass) {
+        localStorage.setItem("cvw_user", user);
+        document.getElementById("userName").innerText = user;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+      } else {
+        alert("IDとパスワードを入力してください");
+      }
+    }
+
+    function logout() {
+      localStorage.removeItem("cvw_user");
+      location.reload();
+    }
+
+    // 自動ログイン処理
+    window.onload = () => {
+      const savedUser = localStorage.getItem("cvw_user");
+      if (savedUser) {
+        document.getElementById("userName").innerText = savedUser;
+        document.getElementById("login").style.display = "none";
+        document.getElementById("dashboard").style.display = "block";
+      }
+    };
+  </script>
+</body>
+</html>
