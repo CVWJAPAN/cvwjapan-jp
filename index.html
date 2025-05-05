@@ -1,66 +1,26 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>CVWCORE ポータル</title>
   <style>
-    body {
-      font-family: "Helvetica", sans-serif;
-      background: #fffdfd;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #8fd3f4;
-      color: white;
-      padding: 1rem;
-      text-align: center;
-      font-size: 1.6rem;
-      font-weight: bold;
-    }
-    .menu {
-      display: flex;
-      flex-direction: column;
-      gap: 1rem;
-      padding: 2rem;
-      max-width: 500px;
-      margin: auto;
-    }
-    .menu-button {
-      background: #ffe4ec;
-      color: #d81b60;
-      text-align: center;
-      padding: 1rem;
-      border-radius: 12px;
-      font-size: 1.2rem;
-      text-decoration: none;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      font-weight: bold;
-    }
-    .menu-button:hover {
-      background: #ffd3e3;
-    }
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 0.8rem;
-      color: #aaa;
+    body { font-family: sans-serif; text-align: center; background: #eaf7fb; padding: 2em; }
+    h1 { color: #003366; }
+    .nav a {
+      display: inline-block; margin: 10px; padding: 12px 20px;
+      background: #ffffff; border: 2px solid #7ec9d6;
+      border-radius: 10px; text-decoration: none; color: #003366; font-weight: bold;
     }
   </style>
 </head>
 <body>
-  <header>CVWCORE ポータル</header>
-
-  <div class="menu">
-    <a href="cvwgen.html" class="menu-button">子ども（CVWGEN）</a>
-    <a href="guardian.html" class="menu-button">保護者</a>
-    <a href="support.html" class="menu-button">支援者</a>
-    <a href="fund.html" class="menu-button">寄付</a>
-    <a href="core_login_mock.html" class="menu-button">ログイン</a>
+  <h1>CVWCORE ポータル</h1>
+  <div class="nav">
+    <a href="cvwgen.html">子ども（CVWGEN）</a>
+    <a href="guardian.html">保護者</a>
+    <a href="supporter.html">支援者</a>
+    <a href="fund.html">寄付</a>
+    <a href="login.html">ログイン</a>
   </div>
-
-  <footer>© 2025 CVWJAPAN</footer>
 </body>
 </html>
