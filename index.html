@@ -2,7 +2,6 @@
 <head>
   <meta charset="UTF-8">
   <title>CVWCOREポータル</title>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
     body {
       font-family: sans-serif;
@@ -36,35 +35,14 @@
     .menu button:hover {
       background-color: #f0f0f0;
     }
-    #login-box {
-      margin-top: 30px;
-    }
   </style>
 </head>
 <body>
-  <h1>CVWCOREポータル</h1>  <div id="login-box">
-    <div id="g_id_onload"
-         data-client_id="YOUR_GOOGLE_CLIENT_ID"
-         data-context="signin"
-         data-callback="onLogin"
-         data-auto_prompt="false">
-    </div>
-    <div class="g_id_signin" data-type="standard"></div>
-  </div>  <div class="menu" id="menu-buttons" style="display: none;">
+  <h1>CVWCOREポータル</h1>  <div class="menu">
     <button onclick="location.href='cvwgen.html'">👦 子ども（CVWGEN）</button>
     <button onclick="location.href='guardian.html'">👨‍👩‍👧‍👦 保護者</button>
     <button onclick="location.href='support.html'">🤝 支援者</button>
     <button onclick="location.href='fund.html'">💝 寄付</button>
-    <button onclick="logout()">🔓 ログアウト</button>
-  </div>  <script>
-    function onLogin(response) {
-      const userData = jwt_decode(response.credential);
-      document.getElementById('login-box').style.display = 'none';
-      document.getElementById('menu-buttons').style.display = 'block';
-    }
-
-    function logout() {
-      location.reload();
-    }
-  </script>  <script src="https://cdn.jsdelivr.net/npm/jwt-decode/build/jwt-decode.min.js"></script></body>
+  </div>
+</body>
 </html>
