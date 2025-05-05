@@ -1,171 +1,88 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>CVWCOREポータル</title>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVWCORE - ホーム</title>
   <style>
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body { font-family: 'Roboto', sans-serif; background: #fefefe; color: #333; }
-
-    nav {
-      background: #00b3e0;
-      padding: 12px 16px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
+    body {
+      font-family: "Segoe UI", sans-serif;
+      background-color: #f2f7fb;
+      margin: 0;
+      padding: 0;
     }
-    .nav-title {
+    .navbar {
+      background-color: #00b5d9;
       color: white;
-      font-size: 18px;
-      font-weight: bold;
-    }
-    .nav-links a {
-      color: white;
-      margin-left: 16px;
-      text-decoration: none;
-      font-size: 14px;
-    }
-    .nav-links a:hover {
-      text-decoration: underline;
-    }
-
-    header {
-      background: linear-gradient(135deg, #00c3ff, #77f2c4);
-      color: white;
-      padding: 24px 16px;
+      padding: 15px;
       text-align: center;
-      border-bottom: 4px solid #00b3e0;
+      font-size: 1.2em;
     }
-    header h1 { font-size: 26px; }
-    header p { font-size: 14px; margin-top: 8px; }
-
+    .navbar a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
     .container {
       padding: 20px;
-      max-width: 960px;
-      margin: auto;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-      gap: 16px;
-    }
-
     .card {
-      background: white;
-      border-radius: 16px;
-      box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+      background-color: white;
+      border-radius: 15px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+      margin: 15px 0;
       padding: 20px;
+      transition: 0.3s;
       text-align: center;
-      transition: transform 0.2s;
-      cursor: pointer;
-      border-top: 6px solid #ccc;
     }
     .card:hover {
-      transform: translateY(-5px);
+      transform: scale(1.02);
     }
-    .card h3 { font-size: 16px; margin: 12px 0 8px; }
-    .card p { font-size: 13px; color: #555; }
-    .card-icon { font-size: 30px; }
-
-    .pink { border-top-color: #ff80ab; }
-    .green { border-top-color: #00c853; }
-    .purple { border-top-color: #7e57c2; }
-    .yellow { border-top-color: #fdd835; }
-    .blue { border-top-color: #29b6f6; }
-    .lavender { border-top-color: #ce93d8; }
-
-    iframe {
-      display: none;
-      width: 100%;
-      height: 500px;
-      border: none;
-      margin-top: 30px;
+    .card h2 {
+      margin: 0 0 10px 0;
     }
-
-    footer {
-      text-align: center;
-      font-size: 12px;
-      color: #999;
-      padding: 24px 0;
+    .emoji {
+      font-size: 2rem;
+      margin-bottom: 10px;
     }
   </style>
 </head>
 <body>
-
-  <nav>
-    <div class="nav-title">CVWCORE</div>
-    <div class="nav-links">
-      <a href="core.html">ホーム</a>
-      <a href="ai/">CVWGEN</a>
-      <a href="guest-login.html">ログイン</a>
-      <a href="https://square.link/u/wXTLUqMW" target="_blank">ご寄付</a>
-      <a href="mailto:cvwjapaninfo@gmail.com">お問い合わせ</a>
-    </div>
-  </nav>
-
-  <header>
-    <h1>CVWCORE ポータル</h1>
-    <p>すべての人にやさしく届く、福祉の入口</p>
-  </header>
+  <div class="navbar">
+    <strong>CVWCORE</strong>
+    <a href="index.html">ホーム</a>
+    <a href="cvwgen.html">CVWGEN</a>
+    <a href="#">ログイン</a>
+    <a href="#">ご寄付</a>
+    <a href="#">お問い合わせ</a>
+  </div>
 
   <div class="container">
-    <div class="grid">
-      <div class="card pink" onclick="loadFrame('cvwgenFrame')">
-        <a href="cvwgen.html" style="text-decoration: none;">
-  <div style="background: #fff0f5; border-radius: 16px; padding: 16px; margin-bottom: 20px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
-    <h3>👦 CVWGEN（子ども支援AI）</h3>
-    <p>子どもの声をAIがやさしく受け止め、支援へ導きます</p>
-  </div>
-        </a
+    <a href="cvwgen.html" style="text-decoration: none; color: inherit;">
+      <div class="card" style="background: #fff0f5;">
+        <div class="emoji">👦</div>
+        <h2>CVWGEN（子ども支援AI）</h2>
+        <p>子どもの声をAIがやさしく受け止め、支援へ導きます</p>
       </div>
-      <div class="card green">
-        <div class="card-icon">👪</div>
-        <h3>保護者向け相談</h3>
-        <p>子育ての悩みを分かち合い、孤立を防ぎます</p>
-      </div>
-      <div class="card purple">
-        <div class="card-icon">🧑‍⚕️</div>
-        <h3>支援者・福祉司</h3>
-        <p>通告判断・支援記録など専門支援機能が充実</p>
-      </div>
-      <div class="card yellow">
-        <div class="card-icon">💰</div>
-        <h3>CVWFUND（寄付）</h3>
-        <p>支援と寄付をつなぐ仕組みで想いをカタチに</p>
-      </div>
-      <div class="card blue" onclick="loadFrame('cvwidFrame')">
-        <div class="card-icon">🔐</div>
-        <h3>CVWID（本人認証）</h3>
-        <p>マイページやLINE連携で安心して使えます</p>
-      </div>
-      <div class="card lavender">
-        <div class="card-icon">🌐</div>
-        <h3>CVWCREONEX（訓練メタバース）</h3>
-        <p>不登校や障がいのある子どもへバーチャル支援</p>
-      </div>
+    </a>
+
+    <div class="card" style="background: #e0f7e9;">
+      <div class="emoji">👨‍👩‍👧</div>
+      <h2>保護者向け相談</h2>
+      <p>子育ての悩みを分かち合い、孤立を防ぎます</p>
     </div>
 
-    <iframe id="cvwgenFrame" src="https://cvwjapan.github.io/cvwjapan-jp/ai"></iframe>
-    <iframe id="cvwidFrame" src="https://cvwjapan.github.io/cvwjapan-jp/guest-login.html"></iframe>
+    <div class="card" style="background: #ede7f6;">
+      <div class="emoji">🩺</div>
+      <h2>支援者・福祉司</h2>
+      <p>通告判断・支援記録など専門支援機能が充実</p>
+    </div>
+
+    <div class="card" style="background: #fffde7;">
+      <div class="emoji">💰</div>
+      <h2>CVWFUND（寄付）</h2>
+      <p>支援と寄付をつなぐ仕組みで想いをカタチに</p>
+    </div>
   </div>
-
-  <footer>
-    &copy; 2025 一般社団法人CVWJAPAN - All Rights Reserved.
-  </footer>
-
-  <script>
-    function loadFrame(id) {
-      document.querySelectorAll("iframe").forEach(f => f.style.display = "none");
-      const frame = document.getElementById(id);
-      frame.style.display = "block";
-      frame.scrollIntoView({ behavior: 'smooth' });
-    }
-  </script>
 </body>
 </html>
