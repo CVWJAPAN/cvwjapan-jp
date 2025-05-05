@@ -1,107 +1,97 @@
-<!DOCTYPE html><html lang="ja">
+<!DOCTYPE html>
+<html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVWCORE ポータル</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CVWCOREポータル</title>
   <style>
     body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(135deg, #fce4ec, #e0f7fa);
+      font-family: "Helvetica", sans-serif;
+      background: #fdfdff;
       color: #333;
-    }header {
-  background-color: #ffccdd;
-  padding: 20px;
-  text-align: center;
-  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-}
-
-header h1 {
-  margin: 0;
-  font-size: 24px;
-  color: #444;
-}
-
-nav {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: #ffffffcc;
-  padding: 10px;
-}
-
-nav a {
-  background-color: #ffb6c1;
-  color: white;
-  text-decoration: none;
-  margin: 5px;
-  padding: 10px 20px;
-  border-radius: 30px;
-  transition: background-color 0.3s ease;
-  font-weight: bold;
-}
-
-nav a:hover {
-  background-color: #f48fb1;
-}
-
-main {
-  padding: 20px;
-}
-
-.card {
-  background-color: white;
-  border-radius: 20px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  margin: 20px auto;
-  padding: 20px;
-  max-width: 600px;
-  animation: fadeInUp 0.5s ease-out;
-}
-
-.card h2 {
-  margin-top: 0;
-  color: #ec407a;
-}
-
-.card p {
-  font-size: 14px;
-  line-height: 1.6;
-}
-
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: #b2e7f4;
+      color: #003366;
+      padding: 1em;
+      text-align: center;
+      font-weight: bold;
+      font-size: 1.5em;
+      border-bottom: 4px solid #71c9e0;
+    }
+    nav {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+      background: #dff8fb;
+      padding: 1em;
+    }
+    nav a {
+      text-decoration: none;
+      background: #fff;
+      border: 2px solid #aee1f5;
+      border-radius: 12px;
+      padding: 0.5em 1.5em;
+      color: #007baa;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+    nav a:hover {
+      background: #aee1f5;
+      color: #fff;
+    }
+    section {
+      padding: 1.5em;
+    }
+    .card {
+      background: #fffef8;
+      border: 1px solid #eee;
+      border-radius: 12px;
+      margin-bottom: 1em;
+      padding: 1em;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+    }
+    .card h2 {
+      margin: 0.5em 0;
+      font-size: 1.2em;
+    }
+    .card p {
+      margin: 0;
+      font-size: 0.95em;
+    }
   </style>
 </head>
 <body>
-  <header>
-    <h1>CVWCORE ポータル</h1>
-  </header>
+  <header>CVWCORE ポータル</header>
+
   <nav>
-    <a href="#cvwgen">CVWGEN</a>
-    <a href="#guardian">保護者</a>
-    <a href="#supporter">支援者</a>
-    <a href="#donate">寄付</a>
-    <a href="#login">ログイン</a>
+    <a href="cvwgen.html">CVWGEN</a>
+    <a href="guardian.html">保護者</a>
+    <a href="supporter.html">支援者</a>
+    <a href="donate.html">寄付</a>
+    <a href="login.html">ログイン</a>
   </nav>
-  <main>
-    <div class="card" id="chaga">
-      <h2>児童虐待防止戦隊 CHAGA</h2>
-      <p>子どもを守る公式キャラクター「チャイルドガードマン」。みんなのヒーローです！</p>
+
+  <section>
+    <div class="card">
+      <h2>CVWGEN（子ども支援AI）</h2>
+      <p>子どもが抱える悩みや不安をやさしくAIが受け止め、支援へつなぎます。</p>
     </div>
-    <div class="card" id="cvwgen">
-      <h2>CVWGEN（AI子ども支援）</h2>
-      <p>子どもが抱える不安や悩みを、やさしいAIが受け止めます。</p>
+    <div class="card">
+      <h2>保護者向けサポート</h2>
+      <p>子育ての不安を共有し、孤立を防ぐためのオンライン相談窓口です。</p>
     </div>
-  </main>
+    <div class="card">
+      <h2>支援者・福祉関係者</h2>
+      <p>通告判断や支援記録など専門支援機能も整備。福祉DXを推進します。</p>
+    </div>
+    <div class="card">
+      <h2>CVWFUND（寄付）</h2>
+      <p>応援したい気持ちを支援につなげる。透明で安心な寄付の仕組みです。</p>
+    </div>
+  </section>
 </body>
 </html>
