@@ -5,6 +5,41 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>CVWこども∞コネクト</title>
   <style>
+<!DOCTYPE html><html lang="ja">
+<head>
+  <meta charset="UTF-8" />
+  <title>たすけてボタンテスト</title>
+  <style>
+    body { text-align:center; font-family:sans-serif; padding-top:50px; }
+    #help-form { display:none; margin-top:20px; }
+    textarea { width: 80%; max-width: 400px; }
+  </style>
+</head>
+<body>  <h2>たすけてボタン</h2>
+  <button onclick="document.getElementById('help-form').style.display='block'">
+    たすけて
+  </button>  <div id="help-form">
+    <p>どんなことで困ってる？</p>
+    <textarea id="help-text" rows="4" placeholder="例：ごはんが食べられない、話を聞いてほしい"></textarea><br><br>
+    <button onclick="submitHelp()">送信する</button>
+  </div>  <p id="response-msg" style="color:green; font-weight:bold;"></p>  <script>
+    function submitHelp() {
+      const text = document.getElementById('help-text').value;
+      if (!text.trim()) {
+        alert("困ってることを入力してください。");
+        return;
+      }
+
+      // 今はコンソールに出すだけ。将来はFirebaseなどに接続
+      console.log("支援要請:", text);
+
+      document.getElementById('response-msg').innerText =
+        "ありがとう。もうすぐ誰かが助けに来てくれるよ。";
+      document.getElementById('help-form').style.display = 'none';
+    }
+  </script></body>
+</html>
+    
     body {
       background: #fff;
       font-family: sans-serif;
