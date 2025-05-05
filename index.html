@@ -1,6 +1,6 @@
-<!-- ▼▼ CVWGEN（CVWJAPANデザイン）ここから ▼▼ -->
+<!-- ▼▼ CVWGEN - 本番用（GPT-4接続）▼▼ -->
 <div id="chatContainer" style="background:#000;border:2px solid #39ff14;border-radius:16px;padding:20px;max-width:720px;margin:auto;box-shadow:0 0 20px #00ffff;margin-top:30px;color:#fff;">
-  <h2 style="color:#ff00ff;">CVWGEN - 子ども支援AI</h2>
+  <h2 style="color:#ff00ff;">CVWGEN - 子ども支援AI（本番版）</h2>
   <p style="color:#fff;">あなたの立場を選んでください：</p>
   <select id="modeSelect" style="font-size:16px;padding:6px;margin-bottom:10px;background:#000;color:#39ff14;border:1px solid #39ff14;">
     <option value="child">子どもとして話す</option>
@@ -29,12 +29,12 @@
     const text = input.value.trim();
     if (!text) return;
 
+    const mode = modeSelect.value;
+
     chatBox.innerHTML += `<p><strong style="color:#ffff00;">あなた：</strong> ${text}</p>`;
-    input.value = "";
     chatBox.scrollTop = chatBox.scrollHeight;
 
     if (messageHistory.length === 0) {
-      const mode = modeSelect.value;
       messageHistory.push({ role: "system", content: systemPrompts[mode] });
     }
 
@@ -44,21 +44,4 @@
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        "Authorization": "Bearer YOUR_API_KEY"  // ← ここにAPIキーを貼り付け
-      },
-      body: JSON.stringify({
-        model: "gpt-4",
-        messages: messageHistory,
-        temperature: 0.6
-      })
-    });
-
-    const data = await response.json();
-    const reply = data.choices[0].message.content;
-    messageHistory.push({ role: "assistant", content: reply });
-
-    chatBox.innerHTML += `<p><strong style="color:#00ffff;">CVWGEN：</strong> ${reply}</p>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
-  }
-</script>
-<!-- ▲▲ CVWGEN（CVWJAPANデザイン）ここまで ▲▲ -->
+        "Authorization": "Bearer sk-ここにあなたのAPIキー" //
