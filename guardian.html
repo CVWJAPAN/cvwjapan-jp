@@ -2,18 +2,89 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>保護者向け</title>
+  <title>CVWGEN - 保護者支援AI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
-    body { font-family: sans-serif; background: #f4f9ff; padding: 20px; }
-    .card { max-width: 600px; margin: auto; background: #d9efff; padding: 20px; border-radius: 12px; }
-    a { text-decoration: none; color: #2196f3; display: block; margin-top: 20px; }
+    body {
+      font-family: 'Arial', sans-serif;
+      background: #f0f9ff;
+      padding: 20px;
+      color: #333;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #e3f2fd;
+      padding: 25px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h1 {
+      text-align: center;
+      color: #1976d2;
+    }
+    textarea, button {
+      width: 100%;
+      font-size: 1.1rem;
+      margin-top: 10px;
+      padding: 12px;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+    }
+    textarea {
+      height: 120px;
+      resize: vertical;
+    }
+    button {
+      background: #64b5f6;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+    }
+    .response {
+      margin-top: 20px;
+      padding: 15px;
+      background: #ffffffdd;
+      border-radius: 10px;
+      line-height: 1.5;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>保護者向け相談</h1>
-    <p>子育ての悩みを共有し、孤立を防ぐためのオンライン相談窓口です。</p>
-    <a href="index.html">← ポータルに戻る</a>
+  <div class="container">
+    <h1>CVWGEN - 保護者支援AI</h1>
+    <p>あなたの不安や悩みを、ここで話してください。GENが優しく寄り添います。</p>
+    <textarea id="inputText" placeholder="今の気持ちや悩みを書いてください..."></textarea>
+    <button onclick="talkToParentGen()">GENと話す</button>
+    <div id="response" class="response"></div>
   </div>
+
+  <script>
+    const responses = [
+      { keywords: ["イライラ", "怒って", "叩いた"], response: "自分を責めないでください。感情があふれる時もあります。一緒に整理していきましょう。" },
+      { keywords: ["お金", "生活費", "困って"], response: "経済的な支援制度を活用できるかもしれません。お住まいの地域で相談窓口を確認してみましょう。" },
+      { keywords: ["誰にも話せない", "孤独", "つらい"], response: "あなたの気持ちはここで受け止めます。ひとりじゃありません。" },
+      { keywords: ["育児", "疲れた", "しんどい"], response: "育児は本当に大変なことです。あなたはがんばっています。" }
+    ];
+
+    function talkToParentGen() {
+      const input = document.getElementById("inputText").value.toLowerCase();
+      let reply = "話してくれてありがとうございます。少しずつ一緒に考えていきましょう。";
+
+      for (const item of responses) {
+        if (item.keywords.some(word => input.includes(word))) {
+          reply = item.response;
+          break;
+        }
+      }
+
+      const history = JSON.parse(localStorage.getItem("parent_gen_history") || "[]");
+      history.push({ input: input, reply: reply });
+      localStorage.setItem("parent_gen_history", JSON.stringify(history));
+
+      document.getElementById("response").innerText = reply;
+      document.getElementById("inputText").value = "";
+    }
+  </script>
 </body>
 </html>
