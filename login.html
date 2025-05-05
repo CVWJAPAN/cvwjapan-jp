@@ -1,44 +1,39 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
+  <meta charset="UTF-8">
+  <title>CVWCORE ログイン</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CVWID（ログイン・本人認証）</title>
+  <script src="https://accounts.google.com/gsi/client" async defer></script>
   <style>
-    body { font-family: sans-serif; margin: 0; background: #eaf2f8; }
-    header {
-      background: #3498db; color: white; padding: 1em;
-      font-size: 1.5em; text-align: center;
+    body {
+      font-family: sans-serif;
+      text-align: center;
+      background-color: #eef7f9;
+      padding: 2em;
     }
-    .container {
-      max-width: 480px; margin: 30px auto; background: white;
-      padding: 20px; border-radius: 12px; box-shadow: 0 0 12px rgba(0,0,0,0.1);
+    h1 {
+      color: #1a3c64;
     }
-    label { display: block; margin: 15px 0 5px; }
-    input {
-      width: 100%; padding: 10px;
-      border: 1px solid #ccc; border-radius: 6px;
-    }
-    .btn {
-      display: block; width: 100%; background: #3498db;
-      color: white; padding: 12px; border: none;
-      border-radius: 6px; font-size: 1em;
-      margin-top: 20px; cursor: pointer;
+    #g_id_onload, .g_id_signin {
+      margin-top: 2em;
     }
   </style>
 </head>
 <body>
-  <header>CVWID（本人認証）</header>
-  <div class="container">
-    <form>
-      <label for="email">メールアドレス</label>
-      <input type="email" id="email" placeholder="example@domain.com" required />
-
-      <label for="password">パスワード</label>
-      <input type="password" id="password" placeholder="●●●●●●" required />
-
-      <button class="btn">ログイン</button>
-    </form>
+  <h1>CVWCORE ポータル ログイン</h1>
+  <div id="g_id_onload"
+       data-client_id="YOUR_CLIENT_ID_HERE"
+       data-login_uri="https://cvwjapan.github.io/cvwjapan-jp/login.html"
+       data-auto_prompt="false">
+  </div>
+  <div class="g_id_signin"
+       data-type="standard"
+       data-size="large"
+       data-theme="outline"
+       data-text="sign_in_with"
+       data-shape="pill"
+       data-logo_alignment="left">
   </div>
 </body>
 </html>
