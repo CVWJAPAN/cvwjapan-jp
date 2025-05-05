@@ -1,94 +1,24 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CVWCORE ポータル</title>
-  <style>
-    body {
-      font-family: "Hiragino Kaku Gothic ProN", sans-serif;
-      background: #fffaf7;
-      margin: 0;
-      padding: 0;
-      color: #333;
-    }
-    header {
-      background-color: #8fd3f4;
-      color: white;
-      padding: 1em;
-      text-align: center;
-      font-size: 1.5em;
-      font-weight: bold;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 10px;
-      background: #d6f0fc;
-      padding: 1em;
-    }
-    nav a {
-      text-decoration: none;
-      background: #ffdde1;
-      color: #333;
-      padding: 10px 16px;
-      border-radius: 12px;
-      font-weight: bold;
-      box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
-    }
-    .section {
-      margin: 1.5em;
-      background: #fff;
-      border-radius: 12px;
-      padding: 1.2em;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.05);
-    }
-    .section h2 {
-      margin-top: 0;
-      color: #ff6f91;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.8em;
-      padding: 1em;
-      color: #aaa;
-    }
-  </style>
-</head>
-<body>
-  <header>CVWCORE ポータル</header>
+<!-- CVWCORE ポータル統一バージョン -->
+<div style="font-family: 'Arial', sans-serif; max-width: 600px; margin: 0 auto; padding: 24px; background: #e0f7fa; border-radius: 16px;">
 
-  <nav>
-    <a href="cvwgen.html">CVWGEN</a>
-    <a href="guardian.html">保護者</a>
-    <a href="support.html">支援者</a>
-    <a href="fund.html">寄付</a>
-    <a href="login.html">ログイン</a>
-  </nav>
+  <h1 style="text-align: center; color: #01579b;">CVWCORE ポータル</h1>
 
-  <div class="section">
-    <h2>CVWGEN（子ども支援AI）</h2>
-    <p>子どもの不安や悩みをやさしく受け止め、AIが支援に導きます。</p>
+  <div style="display: flex; flex-wrap: wrap; justify-content: space-around; margin: 24px 0;">
+    <a href="cvwgen.html" style="text-decoration: none;">
+      <div style="background: #fce4ec; padding: 12px 24px; border-radius: 12px; margin: 8px; color: #d81b60; font-weight: bold;">子ども（CVWGEN）</div>
+    </a>
+    <a href="guardian.html" style="text-decoration: none;">
+      <div style="background: #e8f5e9; padding: 12px 24px; border-radius: 12px; margin: 8px; color: #388e3c; font-weight: bold;">保護者</div>
+    </a>
+    <a href="supporter.html" style="text-decoration: none;">
+      <div style="background: #ede7f6; padding: 12px 24px; border-radius: 12px; margin: 8px; color: #5e35b1; font-weight: bold;">支援者</div>
+    </a>
+    <a href="fund.html" style="text-decoration: none;">
+      <div style="background: #fff3e0; padding: 12px 24px; border-radius: 12px; margin: 8px; color: #ef6c00; font-weight: bold;">寄付</div>
+    </a>
+    <a href="core_login_mock.html" style="text-decoration: none;">
+      <div style="background: #e3f2fd; padding: 12px 24px; border-radius: 12px; margin: 8px; color: #0277bd; font-weight: bold;">ログイン</div>
+    </a>
   </div>
 
-  <div class="section">
-    <h2>保護者向け相談</h2>
-    <p>子育てに関する悩みを共有し、孤立を防ぐ相談ページです。</p>
-  </div>
-
-  <div class="section">
-    <h2>支援者・福祉司</h2>
-    <p>支援記録や通告判断など、専門支援機能を提供します。</p>
-  </div>
-
-  <div class="section">
-    <h2>CVWFUND（寄付）</h2>
-    <p>あなたの寄付が子どもたちの未来を支えます。</p>
-  </div>
-
-  <footer>
-    &copy; 2025 CVWJAPAN. All Rights Reserved.
-  </footer>
-</body>
-</html>
+</div>
