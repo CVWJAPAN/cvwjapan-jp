@@ -1,61 +1,52 @@
+# 最初に必要なPWA対応トップページファイル（index.html）を生成
+index_final_path = "/mnt/data/index.html"
+
+index_html = """
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>CVWCOREポータル</title>
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Arial', sans-serif;
-      background: linear-gradient(180deg, #fce4ec, #e3f2fd);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-    }
-    h1 {
-      background-color: #f8bbd0;
-      width: 100%;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 24px;
-      color: #333;
-    }
-    .button-container {
-      margin-top: 30px;
-      display: flex;
-      flex-direction: column;
-      gap: 20px;
-      width: 80%;
-      max-width: 400px;
-    }
-    .link-button {
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background-color: white;
-      border-radius: 12px;
-      border: 2px solid #ccc;
-      padding: 20px;
-      font-size: 20px;
-      font-weight: bold;
-      text-decoration: none;
-      color: #333;
-      box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-      transition: background 0.3s;
-    }
-    .link-button:hover {
-      background-color: #fce4ec;
-    }
-  </style>
+  <meta charset="UTF-8">
+  <title>CHAGAワールド</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="manifest" href="manifest.json">
+  <link rel="icon" href="icon-chaga-192.png" type="image/png">
+  <meta name="theme-color" content="#00ffff">
+  <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <h1>CVWCOREポータル</h1>
-  <div class="button-container">
-    <a class="link-button" href="cvwgen.html">👦 子ども（CVWGEN）</a>
-    <a class="link-button" href="guardian.html">👪 保護者</a>
-    <a class="link-button" href="support.html">🤝 支援者</a>
-    <a class="link-button" href="fund.html">💝 寄付</a>
-  </div>
+  <header class="hero">
+    <img src="icon-chaga-192.png" class="chaga-icon" alt="CHAGA">
+    <h1>CHAGAワールドへようこそ！</h1>
+    <p class="subtitle">未来を守る冒険の始まり。</p>
+  </header>
+
+  <main class="main-area">
+    <section class="attractions">
+      <a href="potchat.html" class="btn">ポットチャット</a>
+      <a href="missions.html" class="btn">ミッションズエリア</a>
+      <a href="kisekae.html" class="btn">CHAGAきせかえ屋</a>
+      <a href="bike.html" class="btn">CHAGAバイク</a>
+      <a href="tram.html" class="btn">コアトラム</a>
+      <a href="support.html" class="btn">クラファン支援所</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 一般社団法人CVWJAPAN / CVWCREONEX</p>
+    <p>子どもたちに明日を、未来に光を。</p>
+  </footer>
+
+  <script>
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.register("service-worker.js");
+    }
+  </script>
 </body>
 </html>
+"""
+
+# 書き出し
+with open(index_final_path, "w", encoding="utf-8") as f:
+    f.write(index_html)
+
+index_final_path
