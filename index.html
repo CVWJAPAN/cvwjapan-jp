@@ -1,101 +1,165 @@
-<!DOCTYPE html><html lang="ja">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Child Welfare AI Chat</title>
-    <!-- Tailwind CDN -->
-    <script src="https://cdn.tailwindcss.com"></script>
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>デジタル子ども家庭室</title>
     <style>
-      body {
-        background: #ffffff;
-      }
-      /* neon brand colours */
-      :root {
-        --neon-blue: #00e5ff;
-        --neon-pink: #ff1aff;
-        --neon-yellow: #faff00;
-        --neon-green: #00ff8c;
-      }
-      .brand-title {
-        color: var(--neon-blue);
-        text-shadow: 0 0 6px var(--neon-blue);
-      }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f4f8;
+            color: #333;
+        }
+        header {
+            background-color: #4a90e2;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        nav {
+            background-color: #e1ecf4;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 1rem;
+            text-decoration: none;
+            color: #4a90e2;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #2a6496;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 1rem;
+            background-color: white;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        .chat-section {
+            margin: 1rem 0;
+            padding: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        #chat-input {
+            width: 80%;
+            padding: 0.5rem;
+            margin-right: 1rem;
+        }
+        #chat-submit {
+            padding: 0.5rem 1rem;
+            background-color: #4a90e2;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        #chat-submit:hover {
+            background-color: #2a6496;
+        }
+        .resources {
+            margin-top: 2rem;
+        }
+        .resources ul {
+            list-style: none;
+            padding: 0;
+        }
+        .resources li {
+            margin: 0.5rem 0;
+        }
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background-color: #4a90e2;
+            color: white;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
     </style>
-  </head>
-  <body class="flex flex-col min-h-screen items-center p-4">
-    <!-- Header -->
-    <header class="w-full max-w-2xl text-center mb-4">
-      <h1 class="brand-title text-3xl font-bold tracking-widest">
-        一般社団法人 CVWJAPAN<br />児童福祉 AI チャット
-      </h1>
-      <p class="text-sm text-gray-500 mt-2">
-        ※ このチャットは匿名です。緊急の場合は 189 へ電話してください。
-      </p>
-    </header><!-- Chat box -->
-<main id="chatBox" class="w-full max-w-2xl flex-1 overflow-y-auto rounded-xl border p-4 shadow-lg space-y-2 bg-gray-50"></main>
+</head>
+<body>
+    <header>
+        <h1>デジタル子ども家庭室</h1>
+        <p>すべての子どもの健やかな成長をサポートします</p>
+    </header>
+    <nav>
+        <a href="#home">ホーム</a>
+        <a href="#consult">相談する</a>
+        <a href="#resources">支援情報</a>
+        <a href="#about">児童福祉法について</a>
+    </nav>
+    <div class="container">
+        <section id="home">
+            <h2>ようこそ、デジタル子ども家庭室へ</h2>
+            <p>このプラットフォームは、児童福祉法に基づき、子どもや保護者、支援者向けに情報提供や相談窓口を提供します。あなたの悩みや質問を気軽に話してください。</p>
+        </section>
+        <section id="consult" class="chat-section">
+            <h2>相談窓口</h2>
+            <p>Grokと話して、子育てや福祉に関するアドバイスを受けましょう。プライバシーは厳守されます。</p>
+            <input type="text" id="chat-input" placeholder="悩みや質問を入力してください">
+            <button id="chat-submit">送信</button>
+            <div id="chat-response">
+                <!-- Grokからの応答がここに表示 -->
+            </div>
+        </section>
+        <section id="resources" class="resources">
+            <h2>支援リソース</h2>
+            <ul>
+                <li><a href="https://www.mhlw.go.jp" target="_blank">厚生労働省 - 児童福祉</a></li>
+                <li><a href="https://www.cfa.go.jp" target="_blank">こども家庭庁</a></li>
+                <li><a href="tel:0570-064-000">全国児童相談所連絡先（ナビダイヤル）</a></li>
+                <li><a href="tel:189">児童虐待防止ホットライン</a></li>
+            </ul>
+        </section>
+        <section id="about">
+            <h2>児童福祉法について</h2>
+            <p>児童福祉法（1947年制定）は、すべての子どもの権利を保障し、健やかな成長を支援する法律です。虐待防止、子育て支援、里親制度などを通じて、子どもの最善の利益を優先します。詳細は<a href="https://laws.e-gov.go.jp/document?lawid=322AC1000000164" target="_blank">こちら</a>。</p>
+        </section>
+    </div>
+    <footer>
+        <p>&copy; 2025 デジタル子ども家庭室 | <a href="https://x.ai/grok" style="color: white;">Grok by xAI</a></p>
+    </footer>
 
-<!-- Input area -->
-<form id="chatForm" class="w-full max-w-2xl mt-4 flex gap-2">
-  <input
-    id="userInput"
-    type="text"
-    class="flex-1 rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--neon-pink)]"
-    placeholder="ここにメッセージを入力してください…"
-    required
-  />
-  <button
-    type="submit"
-    class="rounded-lg px-4 py-2 font-semibold text-white"
-    style="background: var(--neon-pink); text-shadow: 0 0 4px var(--neon-pink);"
-  >送信</button>
-</form>
+    <script>
+        // Grok APIとの連携（プレースホルダー）
+        const chatSubmit = document.getElementById('chat-submit');
+        const chatInput = document.getElementById('chat-input');
+        const chatResponse = document.getElementById('chat-response');
 
-<!-- Footer -->
-<footer class="text-xs text-gray-400 mt-4">© 2025 CVWJAPAN</footer>
+        chatSubmit.addEventListener('click', async () => {
+            const userInput = chatInput.value.trim();
+            if (!userInput) return;
 
-<!-- Chat logic -->
-<script>
-  const chatBox = document.getElementById("chatBox");
-  const chatForm = document.getElementById("chatForm");
-  const userInput = document.getElementById("userInput");
+            chatResponse.innerHTML = '<p>処理中...</p>';
 
-  const ENDPOINT = "https://YOUR_FUNCTION_APP.azurewebsites.net/api/intake"; // ← intake エージェントに差し替えてください
+            try {
+                // 仮のGrok APIエンドポイント（実際には https://x.ai/api を参照）
+                const response = await fetch('https://api.x.ai/grok', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                        'Authorization': 'Bearer YOUR_API_KEY' // xAI APIキーを設定
+                    },
+                    body: JSON.stringify({
+                        query: userInput,
+                        context: '児童福祉法に基づく相談支援'
+                    })
+                });
 
-  const addBubble = (text, from) => {
-    const bubble = document.createElement("div");
-    bubble.className = `w-fit max-w-[80%] rounded-xl px-4 py-2 text-sm whitespace-pre-line ${
-      from === "user"
-        ? "self-end bg-[var(--neon-yellow)]"
-        : "self-start bg-white border"
-    }`;
-    bubble.textContent = text;
-    chatBox.appendChild(bubble);
-    chatBox.scrollTop = chatBox.scrollHeight;
-  };
+                const data = await response.json();
+                chatResponse.innerHTML = `<p><strong>Grok:</strong> ${data.response || 'サポートが必要な場合、児童相談所（0570-064-000）やこども家庭庁にご連絡ください。'}</p>`;
+            } catch (error) {
+                chatResponse.innerHTML = '<p>エラーが発生しました。後でもう一度お試しください。</p>';
+            }
 
-  chatForm.addEventListener("submit", async (e) => {
-    e.preventDefault();
-    const msg = userInput.value.trim();
-    if (!msg) return;
-    addBubble(msg, "user");
-    userInput.value = "";
-
-    try {
-      const res = await fetch(ENDPOINT, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: msg })
-      });
-      if (!res.ok) throw new Error("HTTP " + res.status);
-      const data = await res.json();
-      // IntakeAgent から返る想定レスポンス { reply: "..." }
-      addBubble(data.reply || "(回答なし)", "bot");
-    } catch (err) {
-      console.error(err);
-      addBubble("サーバーに接続できませんでした。後でもう一度お試しください。", "bot");
-    }
-  });
-</script>
-
-  </body>
+            chatInput.value = ''; // 入力欄をクリア
+        });
+    </script>
+</body>
 </html>
