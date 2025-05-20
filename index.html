@@ -50,6 +50,8 @@
             width: 80%;
             padding: 0.5rem;
             margin-right: 1rem;
+            border: 1px solid #ccc;
+            border-radius: 5px;
         }
         #chat-submit {
             padding: 0.5rem 1rem;
@@ -61,6 +63,12 @@
         }
         #chat-submit:hover {
             background-color: #2a6496;
+        }
+        #chat-response {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #f9f9f9;
+            border-radius: 5px;
         }
         .resources {
             margin-top: 2rem;
@@ -97,37 +105,44 @@
     <div class="container">
         <section id="home">
             <h2>ようこそ、デジタル子ども家庭室へ</h2>
-            <p>このプラットフォームは、児童福祉法に基づき、子どもや保護者、支援者向けに情報提供や相談窓口を提供します。あなたの悩みや質問を気軽に話してください。</p>
+            <p>
+                Grokと話して、子育てや福祉に関するアドバイスを受けましょう。あなたの悩みを気軽に話してください。<br>
+                虐待や子育てに関するアドバイスは匿名でご相談いただけます。
+            </p>
         </section>
         <section id="consult" class="chat-section">
             <h2>相談窓口</h2>
-            <p>Grokと話して、子育てや福祉に関するアドバイスを受けましょう。プライバシーは厳守されます。</p>
-            <input type="text" id="chat-input" placeholder="悩みや質問を入力してください">
+            <p>Grokがあなたの悩みや質問にお答えします。プライバシーは厳守されます。</p>
+            <input type="text" id="chat-input" placeholder="悩みを気軽に話してください">
             <button id="chat-submit">送信</button>
             <div id="chat-response">
                 <!-- Grokからの応答がここに表示 -->
             </div>
         </section>
         <section id="resources" class="resources">
-            <h2>支援リソース</h2>
+            <h2>厚生労働省・児童福祉関連情報</h2>
+            <p>全国児童福祉関連情報一覧（ナビダイヤル）や児童虐待防止など</p>
             <ul>
                 <li><a href="https://www.mhlw.go.jp" target="_blank">厚生労働省 - 児童福祉</a></li>
                 <li><a href="https://www.cfa.go.jp" target="_blank">こども家庭庁</a></li>
-                <li><a href="tel:0570-064-000">全国児童相談所連絡先（ナビダイヤル）</a></li>
-                <li><a href="tel:189">児童虐待防止ホットライン</a></li>
+                <li><a href="tel:0570-064-000">全国児童相談所連絡先（ナビダイヤル：0570-064-000）</a></li>
+                <li><a href="tel:189">児童虐待防止ホットライン（189）</a></li>
             </ul>
         </section>
         <section id="about">
             <h2>児童福祉法について</h2>
-            <p>児童福祉法（1947年制定）は、すべての子どもの権利を保障し、健やかな成長を支援する法律です。虐待防止、子育て支援、里親制度などを通じて、子どもの最善の利益を優先します。詳細は<a href="https://laws.e-gov.go.jp/document?lawid=322AC1000000164" target="_blank">こちら</a>。</p>
+            <p>
+                児童福祉法（1947年制定）は、すべての子どもの権利を保障し、健やかな成長を支援する法律です。<br>
+                虐待防止、子育て支援、里親制度などを通じて、子どもの最善の利益を優先します。<br>
+                詳細は<a href="https://laws.e-gov.go.jp/document?lawid=322AC1000000164" target="_blank">こちら</a>。
+            </p>
         </section>
     </div>
     <footer>
-        <p>&copy; 2025 デジタル子ども家庭室 | <a href="https://x.ai/grok" style="color: white;">Grok by xAI</a></p>
+        <p>© 2025 デジタル子ども家庭室 | Grok by xAI</p>
     </footer>
 
     <script>
-        // Grok APIとの連携（プレースホルダー）
         const chatSubmit = document.getElementById('chat-submit');
         const chatInput = document.getElementById('chat-input');
         const chatResponse = document.getElementById('chat-response');
@@ -144,7 +159,7 @@
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json',
-                        'Authorization': xai-XazMeJORODfmKibTp2eMHAY8s8viCq4nlPuln30RsxwdHPy8BQlPXNO3gPqFDby3wICunLtOfAjTDuvC'// xAI APIキーを設定
+                        'Authorization': 'xai-9lKHL8lZRGv7kN5A8Smug0AowL6JkVClWD7iJ42U3dRQexaVKI0mwUkKxhdPHXgso3Sjlby3y1P5jPwQ' // xAI APIキーを設定
                     },
                     body: JSON.stringify({
                         query: userInput,
