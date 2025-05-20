@@ -1,70 +1,101 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-  <meta charset="UTF-8">
-  <title>一般社団法人CVWJAPAN</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Segoe UI', sans-serif;
-      background: #f9f9f9;
-      color: #222;
-      text-align: center;
-    }
-    header {
-      background: #fff;
-      padding: 40px 20px 20px;
-      border-bottom: 3px solid #00bcd4;
-    }
-    h1 {
-      font-size: 2.4em;
-      color: #00bcd4;
-    }
-    .nav {
-      margin: 40px 10px;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 15px;
-    }
-    .nav a {
-      background: #00bcd4;
-      color: white;
-      padding: 15px 25px;
-      border-radius: 10px;
-      text-decoration: none;
-      font-weight: bold;
-      transition: 0.2s;
-    }
-    .nav a:hover {
-      background: #0288d1;
-    }
-    footer {
-      margin-top: 40px;
-      padding: 20px;
-      background: #eee;
-      color: #666;
-      font-size: 0.9em;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>一般社団法人CVWJAPAN</h1>
-    <p>すべての子どもに安心と未来を。虐待のない世界を目指して。</p>
-  </header>
+<!DOCTYPE html><html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Child Welfare AI Chat</title>
+    <!-- Tailwind CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+      body {
+        background: #ffffff;
+      }
+      /* neon brand colours */
+      :root {
+        --neon-blue: #00e5ff;
+        --neon-pink: #ff1aff;
+        --neon-yellow: #faff00;
+        --neon-green: #00ff8c;
+      }
+      .brand-title {
+        color: var(--neon-blue);
+        text-shadow: 0 0 6px var(--neon-blue);
+      }
+    </style>
+  </head>
+  <body class="flex flex-col min-h-screen items-center p-4">
+    <!-- Header -->
+    <header class="w-full max-w-2xl text-center mb-4">
+      <h1 class="brand-title text-3xl font-bold tracking-widest">
+        一般社団法人 CVWJAPAN<br />児童福祉 AI チャット
+      </h1>
+      <p class="text-sm text-gray-500 mt-2">
+        ※ このチャットは匿名です。緊急の場合は 189 へ電話してください。
+      </p>
+    </header><!-- Chat box -->
+<main id="chatBox" class="w-full max-w-2xl flex-1 overflow-y-auto rounded-xl border p-4 shadow-lg space-y-2 bg-gray-50"></main>
 
-  <div class="nav">
-    <a href="https://cvwjapan.designstore.jp/" target="_blank">グッズで応援</a>
-    <a href="https://square.link/u/wXTLUqMW" target="_blank">単発寄付</a>
-    <a href="https://web.online.airpayment.jp/payment?planId=PLA2huPzkmX8QcgfWm" target="_blank">月額支援</a>
-    <a href="https://cvwjapan.github.io/CHAGAworld/" target="_blank">CHAGAワールド</a>
-    <a href="https://youtube.com/@cvwjapan" target="_blank">YouTube</a>
-  </div>
+<!-- Input area -->
+<form id="chatForm" class="w-full max-w-2xl mt-4 flex gap-2">
+  <input
+    id="userInput"
+    type="text"
+    class="flex-1 rounded-lg border px-3 py-2 focus:outline-none focus:ring-2 focus:ring-[var(--neon-pink)]"
+    placeholder="ここにメッセージを入力してください…"
+    required
+  />
+  <button
+    type="submit"
+    class="rounded-lg px-4 py-2 font-semibold text-white"
+    style="background: var(--neon-pink); text-shadow: 0 0 4px var(--neon-pink);"
+  >送信</button>
+</form>
 
-  <footer>
-    &copy; 2025 一般社団法人CVWJAPAN. All Rights Reserved.
-  </footer>
-</body>
+<!-- Footer -->
+<footer class="text-xs text-gray-400 mt-4">© 2025 CVWJAPAN</footer>
+
+<!-- Chat logic -->
+<script>
+  const chatBox = document.getElementById("chatBox");
+  const chatForm = document.getElementById("chatForm");
+  const userInput = document.getElementById("userInput");
+
+  const ENDPOINT = "https://YOUR_FUNCTION_APP.azurewebsites.net/api/intake"; // ← intake エージェントに差し替えてください
+
+  const addBubble = (text, from) => {
+    const bubble = document.createElement("div");
+    bubble.className = `w-fit max-w-[80%] rounded-xl px-4 py-2 text-sm whitespace-pre-line ${
+      from === "user"
+        ? "self-end bg-[var(--neon-yellow)]"
+        : "self-start bg-white border"
+    }`;
+    bubble.textContent = text;
+    chatBox.appendChild(bubble);
+    chatBox.scrollTop = chatBox.scrollHeight;
+  };
+
+  chatForm.addEventListener("submit", async (e) => {
+    e.preventDefault();
+    const msg = userInput.value.trim();
+    if (!msg) return;
+    addBubble(msg, "user");
+    userInput.value = "";
+
+    try {
+      const res = await fetch(ENDPOINT, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: msg })
+      });
+      if (!res.ok) throw new Error("HTTP " + res.status);
+      const data = await res.json();
+      // IntakeAgent から返る想定レスポンス { reply: "..." }
+      addBubble(data.reply || "(回答なし)", "bot");
+    } catch (err) {
+      console.error(err);
+      addBubble("サーバーに接続できませんでした。後でもう一度お試しください。", "bot");
+    }
+  });
+</script>
+
+  </body>
 </html>
